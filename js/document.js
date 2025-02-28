@@ -1,5 +1,5 @@
 function saveFile(descriptionInput) {
-  let uploads = loadDocumentsFromLocalStorage();
+  let uploads = loadFilesFromLocalStorage();
   let file = {
     id: Date.now(),
     description: descriptionInput,
@@ -10,7 +10,7 @@ function saveFile(descriptionInput) {
   localStorage.setItem("uploads", JSON.stringify(uploads));
 }
 
-function updateDocument(documentId) {
+function updateFile(documentId) {
   let descriptionValue = document.getElementById("description").value;
 
   if (descriptionValue === "") {
@@ -25,7 +25,7 @@ function updateDocument(documentId) {
     return false;
   }
 
-  let files = loadDocumentsFromLocalStorage();
+  let files = loadFilesFromLocalStorage();
   let file = findDocumentbyId(files, documentId);
 
   if (file) {
@@ -43,14 +43,14 @@ function updateDocument(documentId) {
   return true;
 }
 
-function deleteUpload() {
+function deleteFile() {
   let documentId = getUserIdFromURL();
   if (documentId) {
     let confirmDelete = confirm(
       "Are you sure you want to delete this document?"
     );
     if (confirmDelete) {
-      let documentList = loadDocumentsFromLocalStorage();
+      let documentList = loadFilesFromLocalStorage();
       let updatedDocumentList = documentList.filter(
         (document) => document.id != documentId
       );
@@ -75,8 +75,8 @@ function uploadFile() {
   }
 }
 
-function loadDocuments() {
-  let uploads = loadDocumentsFromLocalStorage();
+function loadFiles() {
+  let uploads = loadFilesFromLocalStorage();
   let tableBody = document
     .getElementById("myUploadsTable")
     .querySelector("tbody");
@@ -104,8 +104,8 @@ function loadDocuments() {
                                 </tr>`;
 }
 
-function loadDocumentForEditPage() {
-  let documents = loadDocumentsFromLocalStorage();
+function loadFileForEditPage() {
+  let documents = loadFilesFromLocalStorage();
   let documentId = getUserIdFromURL();
   let file = findDocumentbyId(documents, documentId);
   if (file) {

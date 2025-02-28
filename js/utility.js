@@ -26,7 +26,7 @@ function loadUsersFromLocalStorage() {
   return usersListString ? JSON.parse(usersListString) : [];
 }
 
-function loadDocumentsFromLocalStorage() {
+function loadFilesFromLocalStorage() {
   let uploadsListString = localStorage.getItem("uploads");
   return uploadsListString ? JSON.parse(uploadsListString) : [];
 }

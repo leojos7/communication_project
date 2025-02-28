@@ -11,7 +11,7 @@
     <script>
       window.onload = function () {
         validateUserOnLoad();
-        loadDocumentForEditPage();
+        loadFileForEditPage();
       };
     </script>
     <!-- Navigation Tabs -->
@@ -42,7 +42,7 @@
     <form
       action="Documentlist.html"
       method="get"
-      onsubmit="return updateDocument(getUserIdFromURL())"
+      onsubmit="return updateFile(getUserIdFromURL())"
       novalidate
     >
       <label for="description">Description:</label>
