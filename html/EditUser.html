@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Edit User</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/utility.js" defer></script>
+    <script src="../js/validation.js" defer></script>
+    <script src="../js/user.js" defer></script>
+  </head>
+  <body>
+    <script>
+      window.onload = function () {
+        validateUserOnLoad();
+        loadUserForEditPage();
+      };
+    </script>
+    <!-- Navigation Tabs -->
+    <nav>
+      <a href="Chatlist.html">
+        <button style="padding: 10px 15px; border: none; cursor: pointer">
+          Group Chat
+        </button>
+      </a>
+      <a href="Userlist.html">
+        <button style="padding: 10px 15px; border: none; cursor: pointer">
+          Manage Users
+        </button>
+      </a>
+      <a href="Documentlist.html">
+        <button style="padding: 10px 15px; border: none; cursor: pointer">
+          Manage Documents
+        </button>
+      </a>
+      <a href="Logout.html">
+        <button style="padding: 10px 15px; border: none; cursor: pointer">
+          Logout
+        </button>
+      </a>
+    </nav>
+
+    <h1>Edit User Information</h1>
+    <form
+      action="Userlist.html"
+      method="get"
+      onsubmit="return updateUser(getUserIdFromURL())"
+      novalidate
+    >
+      <label for="username">Full Name:</label>
+      <input type="text" id="username" name="username" />
+      <br /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" disabled />
+      <br /><br />
+
+      <input type="submit" value="Save" />
+    </form>
+  </body>
+</html>
